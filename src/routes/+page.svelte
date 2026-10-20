@@ -657,7 +657,7 @@ async function handleProvinceClick(event: MouseEvent) {
     return;
   }
 
-  const owner = province.owner;
+  
 
   const owner = province.owner;
 
@@ -666,8 +666,6 @@ if (owner === 'TUR') {
   selectedMessage = 'Turcja jest globalnie zbanowana i nie może zostać wybrana.';
   return;
 }
-
-const alreadyBanned = players.some(
 
   const alreadyBanned = players.some(
     (player) => player.ban === owner
