@@ -454,6 +454,9 @@ players = room.players.map((player) => ({
     }
   }
 
+  // Globalny ban — nie jest przypisany do żadnego gracza.
+setCountryMapState('TUR', 'banned');
+
   showDraftResults =
     players.length > 0 &&
     players.every((player) => player.country !== null);
@@ -655,6 +658,16 @@ async function handleProvinceClick(event: MouseEvent) {
   }
 
   const owner = province.owner;
+
+  const owner = province.owner;
+
+if (owner === 'TUR') {
+  pendingCountryAction = null;
+  selectedMessage = 'Turcja jest globalnie zbanowana i nie może zostać wybrana.';
+  return;
+}
+
+const alreadyBanned = players.some(
 
   const alreadyBanned = players.some(
     (player) => player.ban === owner
